@@ -1,4 +1,48 @@
+import "./chat.css"
+import Star from "../../assets/imgs/Star.svg"
+import chat from "../../assets/imgs/chat.svg"
+import chatchat from "../../assets/imgs/Chat.png"
+import { useEffect, useState } from "react"
+
+
 function Chat() {
+
+    const [chats, setChats] = useState([]); 
+
+    useEffect(() => {
+        //Executa toda vez que a tela abre
+      getChats()
+    },[]);
+
+  const getChats = async () => {
+     
+    let response = await fetch("https://senai-gpt-api.azurewebsites.net/chats", {
+        headers: {
+            "Authorization" : "Bearer " + localStorage.getItem("meuToken")
+        }
+    });
+
+    
+    console.log(response);
+
+        if (response.ok ==true) {
+            let json = await response.json(); //Pegue as informacoes do site
+
+            setChats(json);
+
+        }  else {
+            if (response.status == 401)
+
+                alert("Token invalido faca login novamente ");
+                window.location.href = "/login";
+
+
+        }
+
+
+ 
+  }
+
 
     return (
         <>
@@ -10,20 +54,16 @@ function Chat() {
     
                 <button className="btn-new-chat">+ New chat</button>
     
-                <button className="btn-chat">
-                    <img src="../assets/imgs/chat.svg" alt="ícone de chat."/>
-                    AI Chat Tool Ethics
-                </button>
+
+                    {chats.map(chat => (
+                         <button className="btn-chat">
+                         <img src={chat} alt="ícone de chat."/>
+                         {chat.chatTitle}
+                     </button>
+                    ))}
                 
-                <button className="btn-chat">
-                    <img src="../assets/imgs/chat.svg" alt="ícone de chat."/>
-                    AI Chat Tool Impact Writing
-                </button>
                 
-                <button className="btn-chat">
-                    <img src="../assets/imgs/chat.svg" alt="ícone de chat."/>
-                    New chat
-                </button>
+              
 
             </div>
     
@@ -42,7 +82,7 @@ function Chat() {
         <main className="central-panel">
     
             <div className="logo">
-                <img src="../assets/imgs/Chat.png" alt="Logo do SenaiGPT."/>
+                <img src={chatchat} alt="Logo do SenaiGPT."/>
             </div>
     
             <div className="dicas-container">
@@ -50,7 +90,7 @@ function Chat() {
                 <div className="dicas-item">
 
                     <h2>
-                        <img src="../assets/imgs/example.svg" alt="Example icon."/>
+                        <img src={Star} alt="Example icon."/>
                         Examples
                     </h2>
 
@@ -63,7 +103,7 @@ function Chat() {
                 <div className="dicas-item">
 
                     <h2>
-                        <img src="../assets/imgs/example.svg" alt="Example icon."/>
+                        <img src={Star} alt="Example icon."/>
                         Examples
                     </h2>
 
@@ -76,7 +116,7 @@ function Chat() {
                 <div className="dicas-item">
 
                     <h2>
-                        <img src="../assets/imgs/example.svg" alt="Example icon."/>
+                        <img src={Star} alt="Example icon."/>
                         Examples
                     </h2>
                     
