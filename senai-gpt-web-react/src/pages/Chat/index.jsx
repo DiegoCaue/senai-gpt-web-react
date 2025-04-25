@@ -44,7 +44,7 @@ function Chat() {
             if (response.status == 401)
 
                 alert("Token invalido faca login novamente ");
-                localStorage.clear();
+            localStorage.clear();
             window.location.href = "/login";
 
         }
@@ -90,7 +90,7 @@ function Chat() {
                         <button className="btn-chat"> <img src={Luz} />Light mode</button>
                         <button className="btn-chat"> < img src={Conta} />My account</button>
                         <button className="btn-chat"> <img src={Arrow} />Updates & FAQ</button>
-                        <button className="btn-chat"  onClick={() => onLogOutClick()}><img src={Log} />Log out</button>
+                        <button className="btn-chat" onClick={() => onLogOutClick()}><img src={Log} />Log out</button>
 
                     </div>
 
@@ -101,57 +101,57 @@ function Chat() {
                     {chatSelecionado == null && (
 
                         <>
-                        <div className="logo">
-                        <img src={chatchat} alt="Logo do SenaiGPT." />
-                    </div>
+                            <div className="logo">
+                                <img src={chatchat} alt="Logo do SenaiGPT." />
+                            </div>
 
-                    <div className="dicas-container">
+                            <div className="dicas-container">
 
-                        <div className="dicas-item">
+                                <div className="dicas-item">
 
-                            <h2>
-                                <img src={Star} alt="Example icon." />
-                                Examples
-                            </h2>
+                                    <h2>
+                                        <img src={Star} alt="Example icon." />
+                                        Examples
+                                    </h2>
 
-                            <p>Explique como um computador quântico funciona.</p>
-                            <p>Explique como um computador quântico funciona.</p>
-                            <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
 
-                        </div>
+                                </div>
 
-                        <div className="dicas-item">
+                                <div className="dicas-item">
 
-                            <h2>
-                                <img src={mensagemIcon} alt="Example icon." />
-                                Capabilities
-                            </h2>
+                                    <h2>
+                                        <img src={mensagemIcon} alt="Example icon." />
+                                        Capabilities
+                                    </h2>
 
-                            <p>Explique como um computador quântico funciona.</p>
-                            <p>Explique como um computador quântico funciona.</p>
-                            <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
 
-                        </div>
+                                </div>
 
-                        <div className="dicas-item">
+                                <div className="dicas-item">
 
-                            <h2>
-                                <img src={Perguntas} alt="Example icon." />
-                                Limitations
-                            </h2>
+                                    <h2>
+                                        <img src={Perguntas} alt="Example icon." />
+                                        Limitations
+                                    </h2>
 
-                            <p>Explique como um computador quântico funciona.</p>
-                            <p>Explique como um computador quântico funciona.</p>
-                            <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
+                                    <p>Explique como um computador quântico funciona.</p>
 
-                        </div>
+                                </div>
 
-                    </div>
+                            </div>
                         </>
 
                     )}
 
-                  
+
                     <div className="input-container-1">
 
                         <img src={microfone} alt="Microphone." />
