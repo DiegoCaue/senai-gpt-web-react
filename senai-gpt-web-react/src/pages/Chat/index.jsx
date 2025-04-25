@@ -18,7 +18,7 @@ import { useEffect, useState } from "react"
 function Chat() {
 
     const [chats, setChats] = useState([]);
-
+    const [chatSelecionado, setChatSelecionado] = useState(null);
     useEffect(() => {
         //Executa toda vez que a tela abre
         getChats()
@@ -44,6 +44,7 @@ function Chat() {
             if (response.status == 401)
 
                 alert("Token invalido faca login novamente ");
+                localStorage.clear();
             window.location.href = "/login";
 
         }
@@ -53,6 +54,13 @@ function Chat() {
 
         localStorage.clear();
         window.location.href = "/login"
+    }
+
+    const clickChat = (chat) => {
+
+        setChatSelecionado(chat);
+        console.log(chat)
+
     }
 
     return (
@@ -67,7 +75,7 @@ function Chat() {
 
 
                         {chats.map(chat => (
-                            <button className="btn-chat">
+                            <button className="btn-chat" onClick={() => clickChat(chat)}>
                                 <img src={chatIcon} alt="ícone de chat." />
                                 {chat.chatTitle}
                             </button>
@@ -90,7 +98,10 @@ function Chat() {
 
                 <main className="central-panel">
 
-                    <div className="logo">
+                    {chatSelecionado == null && (
+
+                        <>
+                        <div className="logo">
                         <img src={chatchat} alt="Logo do SenaiGPT." />
                     </div>
 
@@ -136,7 +147,11 @@ function Chat() {
                         </div>
 
                     </div>
+                        </>
 
+                    )}
+
+                  
                     <div className="input-container-1">
 
                         <img src={microfone} alt="Microphone." />
