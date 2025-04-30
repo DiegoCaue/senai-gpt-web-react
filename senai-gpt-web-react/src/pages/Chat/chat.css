@@ -73,6 +73,7 @@
     align-items: center;
     padding: 20px;
     height: 70vh;
+    overflow: auto;
 
 }
 
@@ -164,6 +165,8 @@
 
 .chat-container {
 
+    overflow: auto;
+    height: 90px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
